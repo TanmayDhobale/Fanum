@@ -1,10 +1,10 @@
 use anchor_lang::prelude::*;
 use anchor_spl::token::{self, Token, TokenAccount, Transfer};
 
-declare_id!("your program id ");
+declare_id!("your program id");
 
 #[program]
-pub mod hodl_contract {
+pub mod hodl_project {
     use super::*;
 
     pub fn initialize(ctx: Context<Initialize>) -> Result<()> {
