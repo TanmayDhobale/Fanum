@@ -6,13 +6,16 @@ seeds = false
 skip-lint = false
 
 [programs.localnet]
-hodl_project = "your program id"
+hodl_project = "your_program_id"
+
+[programs.testnet]
+hodl_project = "HDSDejM9dQ549FaWeGhbZeEEHpdRcU4Wz1TPeB2yBFQF"
 
 [registry]
 url = "https://api.apr.dev"
 
 [provider]
-cluster = "localnet"
+cluster = "testnet"
 wallet = "/Users/tanmaydhobale/Desktop/hodl_project/new_keypair.json"
 
 [scripts]

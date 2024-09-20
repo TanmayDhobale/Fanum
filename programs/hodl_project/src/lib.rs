@@ -1,7 +1,7 @@
 use anchor_lang::prelude::*;
 use anchor_spl::token::{self, Token, TokenAccount, Transfer};
 
-declare_id!("your program id");
+declare_id!("your_program_id");
 
 #[program]
 pub mod hodl_project {
