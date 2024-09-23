@@ -6,7 +6,7 @@ seeds = false
 skip-lint = false
 
 [programs.localnet]
-hodl_project = "your_program_id"
+hodl_project = "HDSDejM9dQ549FaWeGhbZeEEHpdRcU4Wz1TPeB2yBFQF"
 
 [programs.testnet]
 hodl_project = "HDSDejM9dQ549FaWeGhbZeEEHpdRcU4Wz1TPeB2yBFQF"
