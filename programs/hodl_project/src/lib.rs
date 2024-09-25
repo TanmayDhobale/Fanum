@@ -1,7 +1,7 @@
 use anchor_lang::prelude::*;
 use anchor_spl::token::{self, Token, TokenAccount, Transfer};
 
-declare_id!("HDSDejM9dQ549FaWeGhbZeEEHpdRcU4Wz1TPeB2yBFQF");
+declare_id!("Cs3zUdBmUuo8jFzmtQUAtTHtK7ZKpnK75mfTFDYbLsWt");
 #[program]
 pub mod hodl_project {
     use super::*;
@@ -147,7 +147,11 @@ pub mod hodl_project {
 
 #[derive(Accounts)]
 pub struct Initialize<'info> {
-    #[account(init, payer = admin, space = 8 + 32 + 1)]
+    #[account(
+        init, 
+        payer = admin, 
+        space = 8 + 32 + 1 + 32 
+    )]
     pub state: Account<'info, ProgramState>,
     #[account(mut)]
     pub admin: Signer<'info>,
@@ -161,7 +165,7 @@ pub struct Deposit<'info> {
     #[account(
         init_if_needed,
         payer = authority,
-        space = 8 + 32 + 8 + 8 + 8 + 8,
+        space = 8 + 32 + 8 + 8 + 8 + 8 + 32,
         seeds = [b"user_deposit", authority.key().as_ref()],
         bump
     )]
@@ -295,4 +299,10 @@ fn calculate_reward_rate(lock_period: i64) -> u64 {
     let base_rate = 5;
     let additional_rate = (lock_period / (365 * 24 * 60 * 60)) as u64;
     base_rate + additional_rate
+}
+
+fn calculate_rewards(user_deposit: &UserDeposit, current_timestamp: i64) -> u64 {
+    let lock_duration = (current_timestamp - user_deposit.deposit_timestamp) as u64;
+    let years_locked = lock_duration / (365 * 24 * 60 * 60);
+    (user_deposit.amount * user_deposit.reward_rate * years_locked) / 100
 }

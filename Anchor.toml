@@ -6,17 +6,17 @@ seeds = false
 skip-lint = false
 
 [programs.localnet]
-hodl_project = "HDSDejM9dQ549FaWeGhbZeEEHpdRcU4Wz1TPeB2yBFQF"
+   hodl_project = "Cs3zUdBmUuo8jFzmtQUAtTHtK7ZKpnK75mfTFDYbLsWt"
 
 [programs.testnet]
-hodl_project = "HDSDejM9dQ549FaWeGhbZeEEHpdRcU4Wz1TPeB2yBFQF"
+   hodl_project = "Cs3zUdBmUuo8jFzmtQUAtTHtK7ZKpnK75mfTFDYbLsWt"
 
 [registry]
 url = "https://api.apr.dev"
 
 [provider]
-cluster = "testnet"
-wallet = "/Users/tanmaydhobale/Desktop/hodl_project/new_keypair.json"
+cluster = "devnet"
+wallet = "/Users/tanmaydhobale/.config/solana/id.json"
 
 [scripts]
 test = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 tests/**/*.ts"
